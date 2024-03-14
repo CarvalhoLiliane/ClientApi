@@ -13,14 +13,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address implements Serializable {
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String state;
-    private String city;
-    private String neighborhood;
-    private String road;
-    private String ZipCode;
-    @ManyToOne
+    private String cep;
+    private String logradouro;
+    private String bairro;
+    private String localidade;
+    private String uf;
+    @OneToOne
     @JsonBackReference
     private Client client;
 }

@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class AddressService extends BaseService implements IAddressService {
 
@@ -18,7 +20,23 @@ public class AddressService extends BaseService implements IAddressService {
     private ModelMapper modelMapper;
 
     @Override
-    public AddressDto save(AddressDto addressDto) {
+    public AddressDto save(AddressDto addressDto)  {
+        CepService cepService = new CepService();
+
+        try {
+            AddressDto addressFromCep = cepService.getAddress(addressDto.getCep());
+            if (addressFromCep != null) {
+                addressDto.setId(addressFromCep.getId());
+                addressDto.setLogradouro(addressFromCep.getLogradouro());
+                addressDto.setBairro(addressFromCep.getBairro());
+                addressDto.setLocalidade(addressFromCep.getLocalidade());
+                addressDto.setUf(addressFromCep.getUf());
+            }
+        } catch (IOException e) {
+            // Lida com exceções, se necessário
+            e.printStackTrace();
+        }
+
         Address address = modelMapper.map(addressDto, Address.class);
         Address newAddress = repository.save(address);
         return modelMapper.map(newAddress, AddressDto.class);
@@ -35,4 +53,5 @@ public class AddressService extends BaseService implements IAddressService {
         address.setId(id);
         repository.save(address);
     }
+
 }

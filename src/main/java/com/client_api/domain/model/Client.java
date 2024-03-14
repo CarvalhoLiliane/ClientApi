@@ -1,5 +1,6 @@
 package com.client_api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,9 +21,15 @@ public class Client implements Serializable {
     private String name;
     private String cpf;
     private String email;
-    private Date dateOfBirt;
-    @OneToMany
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date dateOfBirth;
+//    private String cep;
+//    private String logradouro;
+//    private String bairro;
+//    private String localidade;
+//    private String uf;
+    @OneToOne
     @JoinColumn(name = "client_id")
     @JsonManagedReference
-    private List<Address> address;
+    private Address address;
 }

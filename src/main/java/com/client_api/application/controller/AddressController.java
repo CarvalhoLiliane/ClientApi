@@ -15,7 +15,7 @@ public class AddressController {
 
     @PostMapping(value = "/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public AddressDto add(@RequestBody AddressDto addressDto){
+    public AddressDto add(@RequestBody AddressDto addressDto)  {
         return service.save(addressDto);
     }
 
