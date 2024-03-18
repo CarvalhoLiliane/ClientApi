@@ -1,14 +1,11 @@
 package com.client_api.application.controller;
 
-import com.client_api.domain.dtos.AddressDto;
 import com.client_api.domain.dtos.ClientDto;
-import com.client_api.domain.interfaces.IClientService;
+import com.client_api.domain.service.interfaces.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -20,8 +17,8 @@ public class ClientController {
 
     @PostMapping(value = "/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public ClientDto add(@RequestBody ClientDto clientDto, AddressDto addressDto) throws URISyntaxException, IOException {
-       return service.save(clientDto, addressDto);
+    public ClientDto add(@RequestBody ClientDto clientDto)  {
+       return service.save(clientDto);
     }
 
     @GetMapping

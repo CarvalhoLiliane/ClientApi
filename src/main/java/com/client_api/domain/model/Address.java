@@ -17,9 +17,9 @@ public class Address implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cep;
-    private String logradouro;
+    private String rua;
     private String bairro;
-    private String localidade;
+    private String cidade;
     private String uf;
     @OneToOne
     @JsonBackReference

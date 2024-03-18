@@ -23,11 +23,6 @@ public class Client implements Serializable {
     private String email;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dateOfBirth;
-//    private String cep;
-//    private String logradouro;
-//    private String bairro;
-//    private String localidade;
-//    private String uf;
     @OneToOne
     @JoinColumn(name = "client_id")
     @JsonManagedReference

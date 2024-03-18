@@ -16,9 +16,4 @@ public class ClientDto implements Serializable {
     private String cpf;
     private String email;
     private Date dateOfBirt;
-    private String cep;
-    private String logradouro;
-    private String bairro;
-    private String localidade;
-    private String uf;
 }
