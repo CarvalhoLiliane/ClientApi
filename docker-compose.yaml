@@ -6,7 +6,7 @@ services:
     container_name: client_api-mysql-1
     restart: always
     environment:
-      MYSQL_DATABASE: "client_api_db"
+      MYSQL_DATABASE: " client_api-db"
       MYSQL_ROOT_PASSWORD: "root"
     ports:
       - "3306:3306"

@@ -23,5 +23,5 @@ public class Address implements Serializable {
     private String uf;
     @OneToOne
     @JsonBackReference
-    private Client client;
+    private Customer client;
 }

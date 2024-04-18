@@ -15,13 +15,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client implements Serializable {
+public class Customer implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cpf;
     private String email;
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dateOfBirth;
     @OneToOne
     @JoinColumn(name = "client_id")
