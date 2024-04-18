@@ -4,7 +4,6 @@ import com.client_api.domain.dtos.CustomerDto;
 import com.client_api.domain.model.Customer;
 import com.client_api.domain.service.interfaces.ICustomerService;
 import com.client_api.feignClient.ICustomerFeignClient;
-import com.client_api.feignClient.response.ProductResponse;
 import com.client_api.infra.repository.interfaces.ICustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
@@ -22,8 +21,8 @@ public class CustomerService extends BaseService implements ICustomerService {
     @Autowired
     private ModelMapper modelMapper;
 
-    @Autowired
-    private ICustomerFeignClient feignClient;
+//    @Autowired
+//    private ICustomerFeignClient feignClient;
 
     @Override
     public CustomerDto save(CustomerDto customerDto)  {
