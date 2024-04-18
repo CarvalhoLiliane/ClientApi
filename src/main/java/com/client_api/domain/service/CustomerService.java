@@ -3,7 +3,7 @@ package com.client_api.domain.service;
 import com.client_api.domain.dtos.CustomerDto;
 import com.client_api.domain.model.Customer;
 import com.client_api.domain.service.interfaces.ICustomerService;
-import com.client_api.feignClient.ICustomerFeignClient;
+//import com.client_api.feignClient.ICustomerFeignClient;
 import com.client_api.infra.repository.interfaces.ICustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
