@@ -53,7 +53,7 @@ public class CustomerService extends BaseService implements ICustomerService {
     @Override
     public CustomerDto getById(Long id) {
         Customer customer = repository.findById(id).orElseThrow(()-> new EntityNotFoundException("Categoria com ID " + id + " não encontrada."));
-        ProductResponse productResponse = feignClient.getById(id);
+        //ProductResponse productResponse = feignClient.getById(id);
         return modelMapper.map(customer, CustomerDto.class);
     }
 }
